@@ -1,25 +1,33 @@
 
+import { PrismaClient } from '@prisma/client';
+import LoginForm from './loginForm';
+import Nav from './components/nav';
+
+import LoginPage from './login/page';
 
 
-import React from "react";
-import  Nav  from "./components/nav";
 
-export default function Home() {
+export default async function page() {
+  const prisma = new PrismaClient();
+
+  const data = await prisma.user.findMany();
+
   return (
-    <>
-    
-    <Nav/>
-    
-    <main className="flex min-h-screen flex-col items-center justify-between p-24">
       <div>
-  
-        <h1>Home</h1>
-     
+        <Nav />
 
-
+        <LoginPage />
+        <h1>User Data</h1>
+        <ul>
+          {data.map(item => (
+            <div key={item.id}>
+              <li>{item.f_name}</li>
+              <li>{item.l_name}</li>
+              <li>{item.password}</li>
+            </div>
+          ))}
+        </ul>
       </div>
-     
-    </main>
-      </>
-  );
-}
+    );
+  
+};
