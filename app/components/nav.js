@@ -1,24 +1,26 @@
-import { Disclosure, DisclosureButton, DisclosurePanel, Menu, MenuButton, MenuItem, MenuItems } from '@headlessui/react'
-import { Bars3Icon, BellIcon, XMarkIcon } from '@heroicons/react/24/outline'
 
+'use client';
 
-const navigation = [
-  { name: 'Home', href: '/', current: true },
-  { name: 'Services', href: '/services', current: false },
-  { name: 'Contact us', href: '#', current: false },
-]
+import { Disclosure, DisclosureButton, DisclosurePanel, Menu, MenuButton, MenuItem, MenuItems } from '@headlessui/react';
+import { Bars3Icon, BellIcon, XMarkIcon } from '@heroicons/react/24/outline';
 
 function classNames(...classes) {
-  return classes.filter(Boolean).join(' ')
+  return classes.filter(Boolean).join(' ');
 }
 
-export default function Example() {
+export default function Nav({ isAuthenticated, onSignIn, onSignOut }) {
+  const navigation = [
+    { name: 'Home', href: '/', current: true },
+    { name: 'Services', href: '/services', current: false },
+    { name: 'Contact us', href: '#', current: false },
+  ];
+
   return (
     <Disclosure as="nav" className="bg-green-600">
       <div className="mx-auto max-w-7xl px-2 sm:px-6 lg:px-8">
         <div className="relative flex h-16 items-center justify-between">
           <div className="absolute inset-y-0 left-0 flex items-center sm:hidden">
-            {/* Mobile menu button*/}
+            {/* Mobile menu button */}
             <DisclosureButton className="group relative inline-flex items-center justify-center rounded-md p-2 text-gray-400 hover:bg-gray-700 hover:text-white focus:outline-none focus:ring-2 focus:ring-inset focus:ring-white">
               <span className="absolute -inset-0.5" />
               <span className="sr-only">Open main menu</span>
@@ -90,8 +92,12 @@ export default function Example() {
                   </a>
                 </MenuItem>
                 <MenuItem>
-                  <a href="#" className="block px-4 py-2 text-sm text-gray-700 data-[focus]:bg-gray-100">
-                    Sign out
+                  <a
+                    href={isAuthenticated ? "#" : "/pages"} // Conditional href
+                    onClick={isAuthenticated ? onSignOut : onSignIn} // Conditional onClick
+                    className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100"
+                  >
+                    {isAuthenticated ? "Sign Out" : "Sign In"} {/* Conditional text */}
                   </a>
                 </MenuItem>
               </MenuItems>
@@ -119,5 +125,5 @@ export default function Example() {
         </div>
       </DisclosurePanel>
     </Disclosure>
-  )
+  );
 }
