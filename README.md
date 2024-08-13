@@ -1,3 +1,9 @@
+This code will run in live server using VPN account! 
+- http:10.10.4.29:3001
+
+- 
+
+
 This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
 
 ## Getting Started
