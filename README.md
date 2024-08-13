@@ -1,7 +1,14 @@
 This code will run in live server using VPN account! 
 - http:10.10.4.29:3001
+- 10.10.4.29:3306
+  database: web
+  table used:
+  user
+  caregivers
+  available_caregivers
 
-- 
+  
+
 
 
 This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
