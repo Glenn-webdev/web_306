@@ -1,7 +1,5 @@
 'use client';
 
-
-
 import { useState } from 'react';
 
 export default function RegistrationForm() {
@@ -11,7 +9,7 @@ export default function RegistrationForm() {
     email: '',
     password: ''
   });
-  const [message,setMessage] = useState('');
+  const [message, setMessage] = useState('');
 
   const handleChange = (e) => {
     setFormData({ ...formData, [e.target.name]: e.target.value });
@@ -21,7 +19,7 @@ export default function RegistrationForm() {
     e.preventDefault();
 
     try {
-      const response = await fetch('/pages/api/registration', {
+      const response = await fetch('/api/registration', { // Corrected API path
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
@@ -33,7 +31,6 @@ export default function RegistrationForm() {
         setMessage('Registration successful!');
         setFormData({ f_name: '', l_name: '', email: '', password: '' });
 
-  
         console.log('Registration successful!');
       } else {
         setMessage('Registration failed. Please try again.');
@@ -46,16 +43,15 @@ export default function RegistrationForm() {
   };
 
   return (
-    
     <form onSubmit={handleSubmit} className="max-w-md mx-auto p-8 bg-white rounded-lg shadow-md space-y-6">
-      <h2 className="text-2xl font-bold text-center text-gray-800">Register</h2>
+      <h2 className="text-2xl font-bold text-center text-gray-800">Join us</h2>
       
       <div className="flex flex-col space-y-4">
         <input
           type="text"
           name="f_name"
           placeholder="First Name"
-          value={formData.firstName}
+          value={formData.f_name}
           onChange={handleChange}
           className="px-4 py-2 border rounded-md focus:outline-none focus:ring-2 focus:ring-green-500"
         />
@@ -63,7 +59,7 @@ export default function RegistrationForm() {
           type="text"
           name="l_name"
           placeholder="Last Name"
-          value={formData.lastName}
+          value={formData.l_name}
           onChange={handleChange}
           className="px-4 py-2 border rounded-md focus:outline-none focus:ring-2 focus:ring-green-500"
         />
@@ -91,6 +87,13 @@ export default function RegistrationForm() {
       >
         Register
       </button>
+
+      <p className="text-center text-gray-600 mt-4">
+        Already have an account?{' '}
+        <a href="/login" className="text-blue-500 hover:underline">
+          Sign in
+        </a>
+      </p>
     </form>
   );
 }
