@@ -18,17 +18,18 @@ export async function GET() {
         const connection = await mysql.createConnection(db);
 
         // Query to select all users where isActive = 0
-        const [rows] = await connection.execute(`SELECT 
-            u.f_name AS first_name, 
-            u.l_name AS last_name, 
-            c.shift_start AS schedule_start, 
-            c.shift_stop AS schedule_stop
-        FROM 
-            caregiver c
-        JOIN 
-            user u ON c.user_id = u.user_id
-        WHERE 
-            c.isAvailable = 0,
+        const [rows] = await connection.execute(`
+            SELECT 
+                u.f_name AS first_name, 
+                u.l_name AS last_name, 
+                c.shift_start AS schedule_start, 
+                c.shift_stop AS schedule_stop
+            FROM 
+                caregiver c
+            JOIN 
+                user u ON c.user_id = u.user_id
+            WHERE 
+                c.isAvailable = 0
         `);
 
         await connection.end(); // Close the connection

@@ -2,7 +2,7 @@ export default async function Footer() {
     
     return(
     
-        <footer className="bg-white py-8">
+        <footer className="bg-green-100 py-8">
             <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
               <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
                 <div>
