@@ -20,27 +20,25 @@ export async function POST(request) {
     }
 
     try {
-        // Create a new database connection
+
         const connection = await mysql.createConnection(db);
 
-        // Make sure the 'users' table and columns exist in your database
         const [rows] = await connection.execute('SELECT * FROM user WHERE email = ?', [email]);
 
         if (rows.length === 0) {
-            await connection.end(); // Close the connection
+            await connection.end(); 
             return NextResponse.json({ error: 'Invalid email or password' }, { status: 400 });
         }
 
         const user = rows[0];
 
-        // For simplicity, using plaintext password comparison.
-        // In a real application, use a hashing library like bcrypt.
+        
         if (user.password !== password) {
-            await connection.end(); // Close the connection
+            await connection.end();
             return NextResponse.json({ error: 'Invalid email or password' }, { status: 400 });
         }
 
-        await connection.end(); // Close the connection
+        await connection.end(); 
         return NextResponse.json({ message: 'Login successful' });
     } catch (error) {
         console.error('Database error:', error);

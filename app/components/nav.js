@@ -13,7 +13,7 @@ export default function Nav({ isAuthenticated, onSignIn, onSignOut }) {
     { name: 'Home', href: '/', current: true },
     { name: 'Services', href: '/pages/services', current: false },
     { name: 'Contact us', href: '/pages/contact', current: false },
-    { name: 'Register', href: '', current: false },
+    { name: 'Register', href: '/pages/register', current: false },
   ];
 
  

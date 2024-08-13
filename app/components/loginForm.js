@@ -9,7 +9,7 @@ export default function LoginPage() {
     const [error, setError] = useState('');
     const [message, setMessage] = useState('');
     const [isLoggedIn, setIsLoggedIn] = useState(false);
-    const router = useRouter(); // Initialize router
+    const router = useRouter(); 
 
     const handleSubmit = async (event) => {
         event.preventDefault();
@@ -31,7 +31,7 @@ export default function LoginPage() {
 
                 // Wait for 2 seconds before redirecting
                 setTimeout(() => {
-                    router.push('/'); // Redirect to the desired page
+                    router.push('/'); 
                 }, 2000);
             } else {
                 const errorData = await response.json();

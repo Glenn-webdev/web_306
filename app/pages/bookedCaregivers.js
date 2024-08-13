@@ -32,7 +32,7 @@ export default function BookedCaregivers() {
 
   return (
     <div className="min-h-screen flex flex-col items-center space-y-4 py-11">
-  <h1 className="text-lg font-bold">Booked</h1> {/* Title for the list */}
+  <h1 className="text-lg font-bold">Booked</h1> 
   <ul className="space-y-4">
     {caregivers.length > 0 ? (
       caregivers.map((caregiver, index) => (
