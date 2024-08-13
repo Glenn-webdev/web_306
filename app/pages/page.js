@@ -5,6 +5,7 @@ import React from 'react';
 
 import NavBar from '../components/nav';
 import LoginForm from '../components/loginForm';
+import Footer from './footer';
 
 function LoginPage() {
     return (
@@ -14,7 +15,7 @@ function LoginPage() {
 
           <LoginForm/>
 
-          <h1>login</h1>
+          <Footer/>
 
         
           
