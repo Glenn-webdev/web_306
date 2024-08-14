@@ -1,6 +1,9 @@
 import React from 'react';
 import Nav from './components/nav';
 import Footer from './pages/footer';
+import Caregivers from './pages/caregivers';
+import BookedCaregivers from './pages/bookedCaregivers';
+import BookNowButton from './components/bookButton';
 
 function Page() {
   return (
@@ -24,9 +27,8 @@ function Page() {
                   healing hearts
                 </h1>
                 <div className="mt-6">
-                  <button className="text-xl bg-orange-500 hover:bg-orange-600 text-white font-serif py-4 px-6 rounded-full mr-32">
-                    Book Now
-                  </button>
+                  <BookNowButton></BookNowButton>
+                
                 </div>
               </div>
             </div>
@@ -49,7 +51,16 @@ function Page() {
                 <p className="text-center">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque nisl eros, pulvinar facilisis justo mollis, auctor consequat urna.</p>
               </div>
             </div>
+           
           </div>
+          <h1 className='text-center text-4xl font-sans'>Active Caregivers</h1>
+          <div className='flex flex-col md:flex-row md:space-x-4 items-center justify-center h-screen bg-green-50 min-w-11'>
+            
+                 <Caregivers />
+                 <BookedCaregivers />
+          </div>
+
+         
         </main>
         <Footer />
       </div>

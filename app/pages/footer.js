@@ -8,7 +8,7 @@ export default async function Footer() {
                 <div>
                   <ul>
                     <li className="text-gray-600 hover:text-gray-900">Services</li>
-                    <li><a href="/pages/nursesPage.js" className="text-gray-600 hover:text-gray-900">Book a Nurse</a></li>
+                    <li><a href="/pages/bookanurse" className="text-gray-600 hover:text-gray-900">Book a Nurse</a></li>
                     <li className="text-gray-600 hover:text-gray-900">Caregivers</li>
                   </ul>
                 </div>
