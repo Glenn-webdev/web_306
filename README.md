@@ -9,7 +9,23 @@ This code will run in live server using VPN account!
   group 12
   Team: 4 Horsemen of the Apocalypse
   
-
+ 
+  "dependencies": {
+    "@headlessui/react": "^2.1.2",
+    "@heroicons/react": "^2.1.5",
+    "@prisma/client": "^5.18.0",
+    "@react-google-maps/api": "^2.19.3",
+    "axios": "^1.7.3",
+    "bcrypt": "^5.1.1",
+    "body-parser": "^1.20.2",
+    "dotenv": "^16.4.5",
+    "express": "^4.19.2",
+    "jsonwebtoken": "^9.0.2",
+    "mysql": "github:mysqljs/mysql",
+    "mysql2": "^3.11.0",
+    "next": "14.2.5",
+    "react": "^18",
+    "react-dom": "^18"
 
 
 This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
